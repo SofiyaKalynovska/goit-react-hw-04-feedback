@@ -18,6 +18,14 @@ export default class App extends Component {
     }));
   };
 
+  countTotalFeedback() {
+    const totalCount = Object.values(this.state);
+    return totalCount.reduce((acc, total) => acc + total, 0)
+  }
+
+  countPositiveFeedbackPercentage() {
+    return ((this.state.good / this.countTotalFeedback())*100).toFixed(0);
+  }
   render() {
     const  option  = this.state;
     return (
@@ -33,6 +41,8 @@ export default class App extends Component {
         <p>Good: {option.good }</p>
         <p>Neutral: {option.neutral}</p>
         <p>Bad: {option.bad}</p>
+        <p>Total: {this.countTotalFeedback()}</p>
+        <p>Positive feedback: {this.countPositiveFeedbackPercentage()}%</p>
       </Wrapper>
     );
   }
