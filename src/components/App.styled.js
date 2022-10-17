@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   height: '100vh';
+  width: 500px;
   display: 'flex';
   justify-content: 'center';
   align-items: 'center';
@@ -10,19 +11,10 @@ export const Wrapper = styled.div`
   padding: 30px;
 `
 
-export const SectionTitle = styled.h2`
-color: black;
-font-size: 32;
+export const NotificationMessage = styled.p`
+font-size: 28px;
+font-weight: 700;
+color: grey;
+margin: 0px;
 `
 
-export const OptionsSection = styled.div`
-width: 400px;
-display: flex;
-justify-content: space-between;
-
-`
-
-export const FeedbackOption = styled.button`
-width: 100px;
-height: 20px;
-`
