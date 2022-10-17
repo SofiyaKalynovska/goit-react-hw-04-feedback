@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { StatisticsList, StatisticsListItem } from './Statistic.styled';
 
 export default function Statistics({
@@ -22,10 +22,16 @@ export default function Statistics({
   );
 }
 
-// Statistics.propTypes = {
-//   good: PropTypes.number.isRequired,
-//   neutral: PropTypes.number.isRequired,
-//   bad: PropTypes.number.isRequired,
-//   total: PropTypes.number.isRequired,
-//   positivePercentage: PropTypes.number.isRequired,
-// };
+
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
+  // If we don't have feedback yet, function result is NaN - use witch function witchout Math.round
+  // positivePercentage: PropTypes.oneOfType([
+  //   PropTypes.number.isRequired,
+  //   PropTypes.string.isRequired
+  // ]),
+};

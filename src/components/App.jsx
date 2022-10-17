@@ -10,11 +10,10 @@ export default class App extends Component {
     neutral: 0,
     bad: 0,
   };
-  onLeaveFeedback = (option) => {
-    this.setState(prevState => ({ [option]: prevState[option] + 1 })
-      
-    );
-  }
+
+  onLeaveFeedback = option => {
+    this.setState(prevState => ({ [option]: prevState[option] + 1 }));
+  };
 
   countTotalFeedback() {
     const totalCount = Object.values(this.state);
@@ -22,7 +21,9 @@ export default class App extends Component {
   }
 
   countPositiveFeedbackPercentage() {
-    return ((this.state.good / this.countTotalFeedback()) * 100).toFixed(0);
+    // return ((this.state.good / this.countTotalFeedback()) * 100
+    // ).toFixed(0); -> returning NaN if no feedback, propType is erroring
+    return Math.round((this.state.good * 100) / this.countTotalFeedback());
   }
   render() {
     const option = this.state;
@@ -36,37 +37,19 @@ export default class App extends Component {
         </Section>
 
         <Section title="Statistics">
-          {this.countTotalFeedback()
-            ? <Statistics
+          {this.countTotalFeedback() ? (
+            <Statistics
               good={option.good}
               neutral={option.neutral}
               bad={option.bad}
               total={this.countTotalFeedback()}
               positivePercentage={this.countPositiveFeedbackPercentage()}
             />
-           : 
+          ) : (
             <NotificationMessage>There is no feedback</NotificationMessage>
-          }
+          )}
         </Section>
       </Wrapper>
     );
   }
 }
-
-/* <OptionsSection>
-          <FeedbackOption
-            type="button"
-            onClick={() => this.handleClick('good')}
-          >
-            Good
-          </FeedbackOption>
-          <FeedbackOption
-            type="button"
-            onClick={() => this.handleClick('neutral')}
-          >
-            Neutral
-          </FeedbackOption>
-          <FeedbackOption type="button" onClick={() => this.handleClick('bad')}>
-            Bad
-          </FeedbackOption>
-        </OptionsSection> */
