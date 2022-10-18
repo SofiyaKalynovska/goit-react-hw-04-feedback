@@ -21,8 +21,6 @@ export default class App extends Component {
   }
 
   countPositiveFeedbackPercentage() {
-    // return ((this.state.good / this.countTotalFeedback()) * 100
-    // ).toFixed(0); -> returning NaN if no feedback, propType is erroring
     return Math.round((this.state.good * 100) / this.countTotalFeedback());
   }
   render() {

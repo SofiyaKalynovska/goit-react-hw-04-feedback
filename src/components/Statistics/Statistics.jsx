@@ -29,9 +29,4 @@ Statistics.propTypes = {
   bad: PropTypes.number.isRequired,
   total: PropTypes.number.isRequired,
   positivePercentage: PropTypes.number.isRequired,
-  // If we don't have feedback yet, function result is NaN - use witch function witchout Math.round
-  // positivePercentage: PropTypes.oneOfType([
-  //   PropTypes.number.isRequired,
-  //   PropTypes.string.isRequired
-  // ]),
 };
