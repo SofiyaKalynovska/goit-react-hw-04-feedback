@@ -8,7 +8,6 @@ export default function Statistics({
   total,
   positivePercentage,
 }) {
-  
   return (
     <StatisticsList>
       <StatisticsListItem>Good: {good}</StatisticsListItem>
@@ -21,7 +20,6 @@ export default function Statistics({
     </StatisticsList>
   );
 }
-
 
 Statistics.propTypes = {
   good: PropTypes.number.isRequired,
